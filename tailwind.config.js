@@ -5,7 +5,11 @@ module.exports = {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'bubble-bg': "url('/public/images/login-bg.png)"
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin')
