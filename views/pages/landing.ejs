@@ -1,8 +1,30 @@
 <%- include('../partials/head') %>
 
-    <h1 class="text-3xl font-bold underline">
-        Hello world!
-    </h1>
-  
-    
+<%- include('../partials/landing/navbar') %>
+
+<main class="px-36 py-5 mb-36">
+    <!-- Carousel -->
+    <div class="mt-10 mx-10">
+        <%- include('../partials/landing/carousel') %>
+    </div>
+    <!-- Carousel -->
+
+    <!-- Product Terbaru -->
+        <div class="mt-10">
+            <h1 class="text-2xl font-bold ml-9">Terbaru</h1>
+            <%- include('../partials/landing/newest-product') %>
+        </div>
+    <!-- Product Terbaru -->
+
+    <!-- Produk Tersedia -->
+        <div class="mt-10">
+            <h1 class="text-2xl font-bold mb-4 ml-9">Produk Tersedia</h1>
+            <%- include('../partials/landing/available-product') %>
+        </div>
+    <!-- Produk Tersedia --> 
+</main>
+
+<%- include('../partials/landing/footer') %>
+
+
 <%- include('../partials/foot') %>
