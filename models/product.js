@@ -1,4 +1,6 @@
 'use strict';
+const moment = require('moment/moment');
+const {formatRupiah} = require('../config/helper/index')
 const {
   Model
 } = require('sequelize');
@@ -28,6 +30,22 @@ module.exports = (sequelize, DataTypes) => {
         return null;
       }
     },
+    createdDate: {
+      type: DataTypes.VIRTUAL,
+      get(){
+        if(this.createdAt){
+          return moment(this.createdAt).format('D-MM-YYYY')
+        }
+      }
+    },
+    priceRupiah:{
+      type: DataTypes.VIRTUAL,
+      get(){
+        if(this.price){
+          return formatRupiah(this.price, 'Rp. ')
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Product',

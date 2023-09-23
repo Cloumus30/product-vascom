@@ -4,7 +4,7 @@
         <div class="flex flex-col justify-between p-8 leading-normal">
             <h5 class="mb-2 text-gray-700">Jumlah User</h5>
             <div>
-                <span class="text-5xl text-gray-900">150</span>
+                <span class="text-5xl text-gray-900"><%= data.totalUser %></span>
                 <span class="text-lg text-gray-900">User</span>
             </div>
             
@@ -15,7 +15,7 @@
         <div class="flex flex-col justify-between p-8 leading-normal">
             <h5 class="mb-2 text-gray-700">Jumlah User Aktif</h5>
             <div>
-                <span class="text-5xl text-gray-900">150</span>
+                <span class="text-5xl text-gray-900"><%= data.totalUserActives || 0 %></span>
                 <span class="text-lg text-gray-900">User</span>
             </div>
             
@@ -26,8 +26,8 @@
         <div class="flex flex-col justify-between p-8 leading-normal">
             <h5 class="mb-2 text-gray-700">Jumlah Produk</h5>
             <div>
-                <span class="text-5xl text-gray-900">150</span>
-                <span class="text-lg text-gray-900">User</span>
+                <span class="text-5xl text-gray-900"><%= data.totalProduct || 0 %></span>
+                <span class="text-lg text-gray-900">Produk</span>
             </div>
             
         </div>
@@ -37,8 +37,8 @@
         <div class="flex flex-col justify-between p-8 leading-normal">
             <h5 class="mb-2 text-gray-700">Jumlah Produk Aktif</h5>
             <div>
-                <span class="text-5xl text-gray-900">150</span>
-                <span class="text-lg text-gray-900">User</span>
+                <span class="text-5xl text-gray-900"><%= data.totalProductActive || 0 %></span>
+                <span class="text-lg text-gray-900">produk</span>
             </div>
             
         </div>

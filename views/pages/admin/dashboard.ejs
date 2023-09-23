@@ -7,13 +7,13 @@
         <h1 class="mb-10 font-bold text-2xl">Dashboard</h1>
         <!-- Card Section -->
         <div class="mb-10">
-            <%- include('../../partials/admin/dashboard/card-section') %>
+            <%- include('../../partials/admin/dashboard/card-section', {data:data}) %>
         </div>
 
         <!-- Newest Product Section -->
         <div class="bg-white p-8 w-3/4">
             <h3 class="mb-4 font-semibold text-lg">Produk Terbaru</h3>
-            <%- include('../../partials/admin/dashboard/newest-product') %>
+            <%- include('../../partials/admin/dashboard/newest-product', {data: data.newProduct}) %>
         </div>
     </div>
  </main>
