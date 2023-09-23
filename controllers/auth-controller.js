@@ -54,7 +54,7 @@ const loginInView = async (req, res)=>{
     if(user){
         const passMatch = bcrypt.compareSync(body.password, user.password)
         if(passMatch){
-            const token = jwt.sign({subUsr: user.id}, process.env.JWT_SECRET)
+            const token = jwt.sign({subUsr: user.id}, process.env.JWT_SECRET, {expiresIn:'1h'})
             req.flash('success', "Success Login")
             res.cookie('acs', token, {maxAge: 1000*60*60}) // One Hour Expired
            return res.redirect('/admin/dashboard');

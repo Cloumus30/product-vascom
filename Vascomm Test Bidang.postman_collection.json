@@ -1,0 +1,1226 @@
+{
+	"info": {
+		"_postman_id": "e8d82a6f-5377-40d8-b1aa-2b77f35b499c",
+		"name": "Vascomm Test Bidang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15803718"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "List Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/product?take&skip&search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product"
+							],
+							"query": [
+								{
+									"key": "take",
+									"value": null
+								},
+								{
+									"key": "skip",
+									"value": null
+								},
+								{
+									"key": "search",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Products Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/product?take&skip&search",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"product"
+									],
+									"query": [
+										{
+											"key": "take",
+											"value": null
+										},
+										{
+											"key": "skip",
+											"value": null
+										},
+										{
+											"key": "search",
+											"value": null
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "855"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"357-O0ddb80+Gv9vM+FHy5qzGYFMkS8\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:47:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Get\",\n    \"data\": [\n        {\n            \"imageUrl\": null,\n            \"createdDate\": \"23-09-2023\",\n            \"priceRupiah\": \"Rp. 2.000.000\",\n            \"id\": 2,\n            \"name\": \"produk 2\",\n            \"price\": \"2000000\",\n            \"image\": \"\",\n            \"isActive\": true,\n            \"createdAt\": \"2023-09-23T05:07:10.433Z\",\n            \"updatedAt\": null,\n            \"deletedAt\": null\n        },\n        {\n            \"imageUrl\": null,\n            \"createdDate\": \"21-09-2023\",\n            \"priceRupiah\": \"Rp. 500.000\",\n            \"id\": 3,\n            \"name\": \"produk 3\",\n            \"price\": \"500000\",\n            \"image\": \"\",\n            \"isActive\": false,\n            \"createdAt\": \"2023-09-21T05:07:10.433Z\",\n            \"updatedAt\": null,\n            \"deletedAt\": null\n        },\n        {\n            \"imageUrl\": \"http://localhost:5000/public/uploads/product/Product%20Update-1695473777249.png\",\n            \"createdDate\": \"19-09-2023\",\n            \"priceRupiah\": \"Rp. 20.000\",\n            \"id\": 1,\n            \"name\": \"Product Update\",\n            \"price\": \"20000\",\n            \"image\": \"public\\\\uploads\\\\product\\\\Product Update-1695473777249.png\",\n            \"isActive\": true,\n            \"createdAt\": \"2023-09-19T05:07:10.433Z\",\n            \"updatedAt\": \"2023-09-23T12:56:17.408Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Product baru",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "150000",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/danap/Pictures/github.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/product",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Product Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Product baru",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "150000",
+											"type": "text"
+										},
+										{
+											"key": "isActive",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/danap/Pictures/github.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/product",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "423"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1a7-1emU6F1suulgIMhRO2lUM9jOayc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:48:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Input Data\",\n    \"data\": {\n        \"imageUrl\": \"http://localhost:5000/public/uploads/product/Product%20baru-1695512891844.png\",\n        \"createdDate\": \"24-09-2023\",\n        \"priceRupiah\": \"Rp. 150.000\",\n        \"id\": 11,\n        \"name\": \"Product baru\",\n        \"price\": \"150000\",\n        \"isActive\": true,\n        \"image\": \"public\\\\uploads\\\\product\\\\Product baru-1695512891844.png\",\n        \"updatedAt\": \"2023-09-23T23:48:12.112Z\",\n        \"createdAt\": \"2023-09-23T23:48:12.112Z\",\n        \"deletedAt\": null\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Product Update",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "20000",
+									"type": "text"
+								},
+								{
+									"key": "isActive",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/product/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Product Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Product Update",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "20000",
+											"type": "text"
+										},
+										{
+											"key": "isActive",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/product/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"product",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-cSaepJyyYaNW38KmzYSEVw3XrtE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:48:39 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Update Data\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/product/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Product Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/product/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"product",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3b-La+z7M/O99LezXWK8nt4cSDCDAU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:48:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Delete Product\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Force Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/product/force/:productId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"product",
+								"force",
+								":productId"
+							],
+							"variable": [
+								{
+									"key": "productId",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Force Delete Product Successs",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/product/force/:productId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"product",
+										"force",
+										":productId"
+									],
+									"variable": [
+										{
+											"key": "productId",
+											"value": "11"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-r9SPlwKaOGf/Z2Guf2bBtdRTirg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:49:14 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Force Delete Product\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user?take=&skip=&search=",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							],
+							"query": [
+								{
+									"key": "take",
+									"value": "",
+									"description": "integer"
+								},
+								{
+									"key": "skip",
+									"value": "",
+									"description": "integer"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "string"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "List Users Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1030"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"406-juYdr28H3UKgUk0N/Wf/Xsj0Fdk\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "connect.sid=s%3ARXFIAgvicFbUK8kV6SO5_ci9aAFNY5nI.abpTqnHtHMNqqDkfuJmcV9xW17IhmE5OQoIZlcVXka8; Path=/; Expires=Sun, 24 Sep 2023 23:44:40 GMT; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:44:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Get\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"name\": \"user\",\n            \"email\": \"user@mail.com\",\n            \"phone\": \"0813459102312\",\n            \"isActive\": true,\n            \"role\": \"USER\",\n            \"createdAt\": \"2023-09-23T05:07:10.255Z\",\n            \"updatedAt\": \"2023-09-23T17:09:12.294Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 3,\n            \"name\": \"Admin User\",\n            \"email\": \"admin@mail.com\",\n            \"phone\": \"0813459102312\",\n            \"isActive\": true,\n            \"role\": \"ADMIN\",\n            \"createdAt\": \"2023-09-23T05:07:10.255Z\",\n            \"updatedAt\": \"2023-09-23T17:09:16.188Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 24,\n            \"name\": \"dana\",\n            \"email\": \"danapradana30@gmail.com\",\n            \"phone\": \"123\",\n            \"isActive\": false,\n            \"role\": \"USER\",\n            \"createdAt\": \"2023-09-23T18:35:55.991Z\",\n            \"updatedAt\": \"2023-09-23T18:35:55.991Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 21,\n            \"name\": \"asd\",\n            \"email\": \"dana@mail.com\",\n            \"phone\": \"123\",\n            \"isActive\": false,\n            \"role\": \"USER\",\n            \"createdAt\": \"2023-09-23T18:30:02.897Z\",\n            \"updatedAt\": \"2023-09-23T18:38:59.349Z\",\n            \"deletedAt\": null\n        },\n        {\n            \"id\": 26,\n            \"name\": \"Cloudias\",\n            \"email\": \"cloudias@mail.com\",\n            \"phone\": \"1290012\",\n            \"isActive\": false,\n            \"role\": \"USER\",\n            \"createdAt\": \"2023-09-23T23:44:05.618Z\",\n            \"updatedAt\": \"2023-09-23T23:44:05.618Z\",\n            \"deletedAt\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Soft Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/:userId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Soft Delete User Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/user/:userId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-ICDfyW+TWrD7o7kgKTlfuavSFBQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:46:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Delete User\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Force Delete User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/user/force/:userId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"force",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "21"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Force Delete User Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/user/force/:userId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"force",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "21"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-WqDhRkUzGng3tCGo5m47ODwniCI\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:46:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Force Delete User\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cloudias\",\r\n    \"phone\": \"1290012\",\r\n    \"email\": \"cloudias@mail.com\",\r\n    \"password\": \"dana\",\r\n    \"isActive\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/user",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Cloudias\",\r\n    \"phone\": \"1290012\",\r\n    \"email\": \"cloudias@mail.com\",\r\n    \"password\": \"dana\",\r\n    \"isActive\":false\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-RvAkcb+JLNk6qtvquEbe4P8XwXg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:44:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Create User\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Cloudias Update\",\r\n    \"phone\": \"1290012\",\r\n    \"email\": \"cloudias@mail.com\",\r\n    \"isActive\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/user/:userId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"user",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "26"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Cloudias Update\",\r\n    \"phone\": \"1290012\",\r\n    \"email\": \"cloudias@mail.com\",\r\n    \"isActive\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/user/:userId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"user",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "26"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-oeHp6SjsAxJHIuoVFnfBmrqg6eg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 23 Sep 2023 23:47:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success Update User\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Access Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"admin@mail.com\",\r\n    \"password\" : \"admin123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/api/auth/get-token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"get-token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Access Token Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"admin@mail.com\",\r\n    \"password\" : \"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/auth/get-token",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"get-token"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "321"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"141-4TxCaYlf/PjW7DYyE3XGhh6ak5Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 23 Sep 2023 23:43:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"message\": \"Success Get Token\",\n    \"data\": {\n        \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJVc3IiOjMsImlhdCI6MTY5NTUxMjYzNiwiZXhwIjoxNjk1NTE2MjM2fQ.2mRf7mxKE_akNXYFe3amoQa0U0nAKKZMzgni8uMTURI\",\n        \"type\": \"Bearer\",\n        \"user\": {\n            \"name\": \"Admin User\",\n            \"email\": \"admin@mail.com\",\n            \"phone\": \"0813459102312\",\n            \"role\": \"ADMIN\"\n        }\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJVc3IiOjMsImlhdCI6MTY5NTUxMjI3NCwiZXhwIjoxNjk1NTE1ODc0fQ.tbfX1GNgnLIdFcu9-_1SDXaUhn0bd3ap4V-4X5nubpo",
+			"type": "string"
+		}
+	]
+}

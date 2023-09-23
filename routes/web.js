@@ -16,14 +16,13 @@ router.get('/auth/register', registerPage)
 router.get('/auth/logout', logout)
 
 // Admin Routes
-router.use(checkCurrentLogin(['admin']))
-router.get('/admin/dashboard', dashboardPage)
+router.get('/admin/dashboard', checkCurrentLogin(['admin']), dashboardPage)
 
-router.get('/admin/manage-user', manageuserPage)
-router.post('/admin/user/add', addUser)
-router.get('/admin/user/activate/:userId', activateUser)
-router.get('/admin/user/deactivate/:userId', deactivateUser)
+router.get('/admin/manage-user', checkCurrentLogin(['admin']), manageuserPage)
+router.post('/admin/user/add', checkCurrentLogin(['admin']), addUser)
+router.get('/admin/user/activate/:userId', checkCurrentLogin(['admin']), activateUser)
+router.get('/admin/user/deactivate/:userId', checkCurrentLogin(['admin']), deactivateUser)
 
-router.get('/admin/manage-product', manageProductPage)
+router.get('/admin/manage-product', checkCurrentLogin(['admin']), manageProductPage)
 
 module.exports = router;

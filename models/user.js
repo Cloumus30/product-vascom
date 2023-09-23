@@ -24,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'User',
     paranoid:true,
+    scopes:{
+      withoutPassword: {
+        attributes: { exclude: ['password'] },
+      }
+    }
   });
   return User;
 };
