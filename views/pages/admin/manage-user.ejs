@@ -2,8 +2,14 @@
 
 <%- include('../../partials/admin/navbar-navside') %>
  
- <main class="p-4 sm:ml-64">
-    <h1>Dashboard</h1>
+ <main class="p-4 sm:ml-64 bg-[#F8F8F8] h-full min-h-screen">
+    <div class="p-4 mt-14">
+        <h1 class="font-bold text-2xl">Manajemen User</h1>
+        <!-- Table User Section -->
+        <div class="mb-10">
+            <%- include('../../partials/admin/manage-user/table-user') %>
+        </div>
+    </div>
  </main>
 
 <%- include('../../partials/foot') %>

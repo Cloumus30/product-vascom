@@ -13,3 +13,11 @@ export const dashboardPage = (req, res)=>{
 export const manageuserPage = (req, res)=>{
     res.render('pages/admin/manage-user')
 }
+
+/** 
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
+export const manageProductPage = (req, res)=>{
+    res.render('pages/admin/manage-user')
+}

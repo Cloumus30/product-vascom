@@ -2,8 +2,20 @@
 
 <%- include('../../partials/admin/navbar-navside') %>
  
- <main class="p-4 sm:ml-64">
-    <h1>Dashboard</h1>
+ <main class="p-4 sm:ml-64 bg-[#F8F8F8] h-full min-h-screen">
+    <div class="p-4 mt-14">
+        <h1 class="mb-10 font-bold text-2xl">Dashboard</h1>
+        <!-- Card Section -->
+        <div class="mb-10">
+            <%- include('../../partials/admin/dashboard/card-section') %>
+        </div>
+
+        <!-- Newest Product Section -->
+        <div class="bg-white p-8 w-3/4">
+            <h3 class="mb-4 font-semibold text-lg">Produk Terbaru</h3>
+            <%- include('../../partials/admin/dashboard/newest-product') %>
+        </div>
+    </div>
  </main>
 
 <%- include('../../partials/foot') %>
