@@ -1,6 +1,6 @@
 <!-- Modal toggle -->
 <div class="flex justify-end mb-5">
-    <button class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button">
+    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button">
         Tambah User
     </button>
 </div>
@@ -31,81 +31,45 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td class="px-6 py-4">
-                    1
-                </td>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Cloudias Imani Pradana
-                </th>
-                <td class="px-6 py-4">
-                    danapradana30@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    08124512312
-                </td>
-                <td class="px-6 py-4 text-center">
-                    <span class="bg-red-600 text-white text-sm font-medium mr-2 px-5 py-1 rounded-full">Tidak Aktif</span>
-                </td>
-                <td class="flex gap-2 py-4">
-                    <button class="rounded-full bg-green-500 hover:bg-green-700 px-1.5 py-0.5 my-auto">
-                        <iconify-icon class="mt-1" icon="mdi:eye" style="color: white;" width="20"></iconify-icon>
-                    </button>
-                    <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto">
-                        <iconify-icon class="mt-1" icon="uil:edit" style="color: white;" width="20"></iconify-icon>
-                    </button>
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td class="px-6 py-4">
-                    2
-                </td>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Cloudias Imani Pradana
-                </th>
-                <td class="px-6 py-4">
-                    danapradana30@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    08124512312
-                </td>
-                <td class="px-6 py-4 text-center">
-                    <span class="bg-red-600 text-white text-sm font-medium mr-2 px-5 py-1 rounded-full">Tidak Aktif</span>
-                </td>
-                <td class="flex gap-2 py-4">
-                    <button class="rounded-full bg-green-500 hover:bg-green-700 px-1.5 py-0.5 my-auto">
-                        <iconify-icon class="mt-1" icon="mdi:eye" style="color: white;" width="20"></iconify-icon>
-                    </button>
-                    <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto">
-                        <iconify-icon class="mt-1" icon="uil:edit" style="color: white;" width="20"></iconify-icon>
-                    </button>
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <td class="px-6 py-4">
-                    3
-                </td>
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Alfian
-                </th>
-                <td class="px-6 py-4">
-                    danapradana30@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    08124512312
-                </td>
-                <td class="px-6 py-4 text-center">
-                    <span class="bg-green-500 text-white text-sm font-medium mr-2 px-10 py-1 rounded-full">Aktif</span>
-                </td>
-                <td class="flex gap-2 py-4">
-                    <button type="button" class="rounded-full bg-green-500 hover:bg-green-700 px-1.5 py-0.5 my-auto">
-                        <iconify-icon class="mt-1" icon="mdi:eye" style="color: white;" width="20"></iconify-icon>
-                    </button>
-                    <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto">
-                        <iconify-icon class="mt-1" icon="uil:edit" style="color: white;" width="20"></iconify-icon>
-                    </button>
-                </td>
-            </tr>
+            <% data.forEach((element, index) => { %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-6 py-4">
+                        <%= index+1 %>
+                    </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= element.name %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <%= element.email %>
+                    </td>
+                    <td class="px-6 py-4">
+                        <%= element.phone %>
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <% if (element.isActive) { %>
+                            <span class="bg-green-600 text-white text-sm font-medium mr-2 px-10 py-1 rounded-full">Aktif</span>
+                        <% } else { %>
+                            <span class="bg-red-600 text-white text-sm font-medium mr-2 px-5 py-1 rounded-full">Tidak Aktif</span>
+                        <% } %> 
+                        
+                    </td>
+                    <td class="flex gap-2 py-4">
+                        <% if (element.isActive) { %>
+                            <a href="/admin/user/deactivate/<%= element.id %>" class="rounded-full bg-red-500 hover:bg-red-700 px-1.5 py-0.5 my-auto">
+                                <iconify-icon class="mt-1" icon="mdi:eye-off" style="color: white;" width="20"></iconify-icon>
+                            </a>
+                        <% } else { %>
+                            <a href="/admin/user/activate/<%= element.id %>" class="rounded-full bg-green-500 hover:bg-green-700 px-1.5 py-0.5 my-auto">
+                                <iconify-icon class="mt-1" icon="mdi:eye" style="color: white;" width="20"></iconify-icon>
+                            </a>
+                        <% } %> 
+                        <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto">
+                            <iconify-icon class="mt-1" icon="uil:edit" style="color: white;" width="20"></iconify-icon>
+                        </button>
+                    </td>
+                </tr>
+            <% }) %>
+            
         </tbody>
     </table>
 

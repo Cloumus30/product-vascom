@@ -28,6 +28,9 @@ const checkCurrentLogin = (roles=['user']) =>( async (req, res, next)=>{
                         res.locals.userLoggedIn = user
                         return next();
                     }
+                    if(user.role == 'USER'){
+                        return res.redirect('/')
+                    }
                 }
             })
         }else{

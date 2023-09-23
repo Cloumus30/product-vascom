@@ -17,6 +17,9 @@ const dashboardPage = async (req, res)=>{
         }
     })
     const newProducts = await Product.findAll({
+        order:[
+            ['createdAt', 'DESC']
+        ],
         limit:10
     })
 
@@ -34,8 +37,9 @@ const dashboardPage = async (req, res)=>{
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-const manageuserPage = (req, res)=>{
-    res.render('pages/admin/manage-user')
+const manageuserPage = async (req, res)=>{
+    const data = await User.findAll();
+    res.render('pages/admin/manage-user', {data})
 }
 
 /** 

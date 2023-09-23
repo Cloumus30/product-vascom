@@ -41,7 +41,7 @@ const loginInView = async (req, res)=>{
         req.flash('failed', validator.error.message)
         return res.redirect('back');
     }
-
+    console.log(body);
     const user = await User.findOne({
         where:{
             [Op.or]:[
