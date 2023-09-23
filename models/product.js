@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const url = require('url');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -17,7 +18,16 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     price: DataTypes.BIGINT,
     image: DataTypes.STRING,
-    isActive: DataTypes.BOOLEAN
+    isActive: DataTypes.BOOLEAN,
+    imageUrl: {
+      type: DataTypes.VIRTUAL,
+      get(){
+        if(this.image){
+          return url.resolve('http://localhost:5000', this.image);
+        }
+        return null;
+      }
+    },
   }, {
     sequelize,
     modelName: 'Product',
