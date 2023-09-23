@@ -1,4 +1,5 @@
-import express from 'express'
+const express = require('express');
+const { getListProduct } = require('../controllers/api/product-api-controller');
 
 const router = express.Router();
 
@@ -10,4 +11,6 @@ router.get('/', (req, res)=>{
     })
 });
 
-export default router;
+router.get('/product', getListProduct)
+
+module.exports = router;

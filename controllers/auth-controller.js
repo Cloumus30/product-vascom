@@ -3,7 +3,7 @@
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-export const loginPage = (req, res)=>{
+const loginPage = (req, res)=>{
     res.render('pages/auth/login')
 }
 
@@ -11,6 +11,11 @@ export const loginPage = (req, res)=>{
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-export const registerPage = (req, res)=>{
+const registerPage = (req, res)=>{
     res.render('pages/auth/register')
+}
+
+module.exports = {
+    loginPage,
+    registerPage
 }

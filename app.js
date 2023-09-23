@@ -1,6 +1,6 @@
-import dotenv from 'dotenv'
-import express from 'express'
-import routesProvider from './providers/routesProvider.js'
+const dotenv = require( 'dotenv')
+const express = require( 'express')
+const routesProvider = require( './providers/routesProvider.js')
 
 dotenv.config()
 const app = express();

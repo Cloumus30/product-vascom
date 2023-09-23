@@ -2,7 +2,7 @@
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-export const dashboardPage = (req, res)=>{
+const dashboardPage = (req, res)=>{
     res.render('pages/admin/dashboard')
 }
 
@@ -10,7 +10,7 @@ export const dashboardPage = (req, res)=>{
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-export const manageuserPage = (req, res)=>{
+const manageuserPage = (req, res)=>{
     res.render('pages/admin/manage-user')
 }
 
@@ -18,6 +18,12 @@ export const manageuserPage = (req, res)=>{
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-export const manageProductPage = (req, res)=>{
+const manageProductPage = (req, res)=>{
     res.render('pages/admin/manage-user')
+}
+
+module.exports= {
+    dashboardPage,
+    manageuserPage,
+    manageProductPage
 }

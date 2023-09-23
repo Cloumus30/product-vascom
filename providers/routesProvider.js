@@ -1,10 +1,10 @@
-import express from 'express'
-import web from '../routes/web.js'
-import api from '../routes/api.js'
+const express = require( 'express')
+const web = require( '../routes/web.js')
+const api = require( '../routes/api.js')
 
 const router = express.Router();
 
 router.use(web)
 router.use('/api', api)
 
-export default router;
+module.exports = router;
