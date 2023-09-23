@@ -12,3 +12,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>
 <body>
+    <% if (messages.success) { %>
+        <%- include('./toast/toast-success', {message:messages.success[0], index:1}) %>
+    <% } %>
+    <% if (messages.failed) { %>
+        <%- include('./toast/toast-failed', {message:messages.failed[0], index:1}) %>
+    <% } %>

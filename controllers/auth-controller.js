@@ -4,7 +4,13 @@
  * @param {import("express").Response} res
  */
 const loginPage = (req, res)=>{
-    res.render('pages/auth/login')
+    try {
+        return res.render('pages/auth/login')    
+    } catch (error) {
+        req.flash('failed', error.message)
+        return res.redirect('back')
+    }
+    
 }
 
 /** 
@@ -13,6 +19,14 @@ const loginPage = (req, res)=>{
  */
 const registerPage = (req, res)=>{
     res.render('pages/auth/register')
+}
+
+/** 
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
+const login = (req, res)=>{
+    res.render('pages/auth/login')
 }
 
 module.exports = {
