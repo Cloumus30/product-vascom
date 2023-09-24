@@ -46,8 +46,9 @@ const manageuserPage = async (req, res)=>{
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
-const manageProductPage = (req, res)=>{
-    res.render('pages/admin/manage-user')
+const manageProductPage = async (req, res)=>{
+    const data = await Product.findAll()
+    res.render('pages/admin/manage-product', {data})
 }
 
 module.exports= {

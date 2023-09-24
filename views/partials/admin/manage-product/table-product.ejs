@@ -1,0 +1,94 @@
+<!-- Modal toggle -->
+<div class="flex justify-end mb-5">
+    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" data-modal-target="add-product-modal" data-modal-toggle="add-product-modal" type="button">
+        Tambah Produk
+    </button>
+</div>
+
+
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400" id="table-user">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    <center>
+                        No
+                    </center>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <center>
+                        Nama
+                    </center>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <center>
+                        Harga
+                    </center>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <center>
+                        Gambar
+                    </center>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <center>
+                        Status
+                    </center>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((element, index) => { %>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                    <td class="px-6 py-4">
+                        <%= index+1 %>
+                    </td>
+                    <th scope="row" class="px-6 w-1/3 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <%= element.name %>
+                    </th>
+                    <td class="px-6 py-4">
+                        <%= element.priceRupiah %>
+                    </td>
+                    <td class="py-4 f">
+                        <center>
+                            <img class="w-1/6" src="<%= element.imageUrl %>" alt="Gambar Product">
+                        </center>
+                        
+                    </td>
+                    <td class="px-6 py-4 text-center">
+                        <% if (element.isActive) { %>
+                            <span class="bg-green-600 text-white text-sm font-medium mr-2 px-10 py-1 rounded-full">Aktif</span>
+                        <% } else { %>
+                            <span class="bg-red-600 text-white text-sm font-medium mr-2 px-5 py-1 rounded-full">Tidak Aktif</span>
+                        <% } %> 
+                        
+                    </td>
+                    <td class="flex gap-2 py-4">
+                        <% if (element.isActive) { %>
+                            <a href="/admin/product/deactivate/<%= element.id %>" class="rounded-full bg-red-500 hover:bg-red-700 px-1.5 py-0.5 my-auto">
+                                <iconify-icon class="mt-1" icon="mdi:eye-off" style="color: white;" width="20"></iconify-icon>
+                            </a>
+                        <% } else { %>
+                            <a href="/admin/product/activate/<%= element.id %>" class="rounded-full bg-green-500 hover:bg-green-700 px-1.5 py-0.5 my-auto">
+                                <iconify-icon class="mt-1" icon="mdi:eye" style="color: white;" width="20"></iconify-icon>
+                            </a>
+                        <% } %> 
+                        <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto" data-modal-target="edit-product-modal<%= element.id %>" data-modal-toggle="edit-product-modal<%= element.id %>">
+                            <iconify-icon class="mt-1" icon="uil:edit" style="color: white;" width="20"></iconify-icon>
+                        </button>
+                        <%- include('./modal-form', {
+                            idModal:"edit-product-modal"+element.id, 
+                            url:"/admin/product/update/"+element.id,
+                            data: element}) %>
+                    </td>
+                </tr>
+            <% }) %>
+            
+        </tbody>
+    </table>
+
+    <%- include('./modal-form', {idModal:"add-product-modal", url:"/admin/product/add"}) %>
+</div>

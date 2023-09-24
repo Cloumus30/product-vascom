@@ -58,7 +58,7 @@ const createProduct = async (req, res)=>{
         price: Joi.number().required(),
         isActive: Joi.boolean().optional()
         })
-        const validator = productSchema.validate(body)
+        const validator = productSchema.validate(body,{allowUnknown:true})
         if(validator.error){
             return res.status(400).json({
                 code: 400,
