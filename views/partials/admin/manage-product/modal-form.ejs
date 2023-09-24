@@ -23,7 +23,7 @@
                     </div>
                       <div>
                           <label for="image-inp" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload Gambar Product</label>
-                          <input type="file" accept="image/*" name="image" id="image-inp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg hidden w-full p-2.5" placeholder="Upload File" required>
+                          <input type="file" accept="image/*" name="image" id="image-inp" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg hidden w-full p-2.5" placeholder="Upload File">
                           <img src="/public/images/upload-form.png" id="img-upload" class="hover:cursor-pointer" alt="Upload Form" >
                           <div class="flex justify-center">
                             <img src="<%= (data) ? data.imageUrl : null %>" id="img-preview" class="" alt="" <%= (data) ? "" : "hidden" %>>

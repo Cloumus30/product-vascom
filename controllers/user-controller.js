@@ -4,51 +4,114 @@ const bcrypt = require('bcryptjs')
 const { generateString } = require('../config/helper')
 const { transporter, sendMailPass } = require('../config/nodemailer')
 const { render } = require('ejs')
+const { Op } = require('sequelize')
 
 /** 
  * @param {import("express").Request} req
  * @param {import("express").Response} res
  */
 const addUser = async (req, res)=>{
-    const body = req.body
-    const userSchema = Joi.object({
-    name: Joi.string().required(),
-    phone: Joi.number().required(),
-    email: Joi.string().required(),
-    })
-    const validator = userSchema.validate(body)
-    if(validator.error){
-        req.flash('failed',validator.error.message);
-        return res.redirect('back');
-    }
-
-    const duplicateUser = await User.findOne({
-        where:{
-            email: body.email
+    try {
+        const body = req.body
+        const userSchema = Joi.object({
+        name: Joi.string().required(),
+        phone: Joi.number().required(),
+        email: Joi.string().required(),
+        })
+        const validator = userSchema.validate(body)
+        if(validator.error){
+            req.flash('failed',validator.error.message);
+            return res.redirect('back');
         }
-    })
-    if(duplicateUser){
-        req.flash('failed', 'User dengan Email Ini sudah terdaftar');
+
+        const duplicateUser = await User.findOne({
+            where:{
+                email: body.email
+            }
+        })
+        if(duplicateUser){
+            req.flash('failed', 'User dengan Email Ini sudah terdaftar');
+            return res.redirect('back');
+        }
+
+        const randomPass = generateString(6);
+
+        const mail = await sendMailPass('Vascomm Shop', body.email, "Pembuatan Akun", randomPass)    
+
+        const salt = bcrypt.genSaltSync(10)
+        const passhashed = bcrypt.hashSync(randomPass, salt);
+
+        const payloads = {
+            name: body.name,
+            phone: body.phone,
+            email: body.email,
+            isActive: body.isActive || false,
+            password: passhashed,
+            role:'USER',
+        }
+        
+        const data = await User.create(payloads)
+        req.flash('success', 'Success Tambah User');
+        return res.redirect('/admin/manage-user')   
+    } catch (error) {
+        req.flash('failed', error.message);
+        return res.redirect('/admin/manage-user')   
+    }
+}
+
+/** 
+ * Update User API
+ * @param {import("express").Request} req
+ * @param {import("express").Response} res
+ */
+const updateUser = async (req, res)=>{
+    try {
+        const body = req.body
+        const {userId} = req.params
+
+        const userSchema = Joi.object({
+        name: Joi.string().required(),
+        phone: Joi.number().required(),
+        email: Joi.string().required(),
+        })
+        const validator = userSchema.validate(body)
+        if(validator.error){
+            req.flash('failed',validator.error.message);
+            return res.redirect('back');
+        }
+
+        const duplicateUser = await User.findOne({
+            where:{
+                email: body.email,
+                id:{
+                    [Op.ne] : userId
+                }
+                
+            }
+        })
+        if(duplicateUser){
+            req.flash('failed','User Dengan Email Ini Telah Dibuat');
+            return res.redirect('back');
+        }
+
+        const payloads = {
+            name: body.name,
+            phone: body.phone,
+            email: body.email,
+        }
+        
+        const data = await User.update(payloads, {
+            where:{
+                id: userId
+            }
+        })
+
+        req.flash('success', 'Success Update User');
+        return res.redirect('/admin/manage-user')
+    } catch (error) {
+        req.flash('failed', error.message);
         return res.redirect('back');
     }
-
-    const randomPass = generateString(6);
-    const mail = await sendMailPass('Vascomm Shop', body.email, "Pembuatan Akun", randomPass)
-    const salt = bcrypt.genSaltSync(10)
-    const passhashed = bcrypt.hashSync(randomPass, salt);
-
-    const payloads = {
-        name: body.name,
-        phone: body.phone,
-        email: body.email,
-        isActive: body.isActive || false,
-        password: passhashed,
-        role:'USER',
-    }
-    
-    const data = await User.create(payloads)
-    req.flash('success', 'Success Tambah User');
-    return res.redirect('/admin/manage-user')
 }
 
 /** 
@@ -100,5 +163,6 @@ const deactivateUser = async (req, res)=>{
 module.exports = {
     addUser,
     activateUser,
-    deactivateUser
+    deactivateUser,
+    updateUser
 }

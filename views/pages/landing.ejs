@@ -12,14 +12,14 @@
     <!-- Product Terbaru -->
         <div class="mt-10">
             <h1 class="text-2xl font-bold ml-9">Terbaru</h1>
-            <%- include('../partials/landing/newest-product') %>
+            <%- include('../partials/landing/newest-product', {data: data.newest_product}) %>
         </div>
     <!-- Product Terbaru -->
 
     <!-- Produk Tersedia -->
         <div class="mt-10">
             <h1 class="text-2xl font-bold mb-4 ml-9">Produk Tersedia</h1>
-            <%- include('../partials/landing/available-product') %>
+            <%- include('../partials/landing/available-product', {data: data.products}) %>
         </div>
     <!-- Produk Tersedia --> 
 </main>

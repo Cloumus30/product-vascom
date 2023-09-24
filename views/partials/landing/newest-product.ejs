@@ -2,31 +2,9 @@
 
 <div class="glider-contain">
     <div class="glider py-2">
-        
-            <%- include('product-card') %>
-        
-        
-            <%- include('product-card') %>
-        
-        
-            <%- include('product-card') %>
-        
-        
-            <%- include('product-card') %>
-        
-        
-            <%- include('product-card') %>
-        
-
-        
-            <%- include('product-card') %>
-        
-        
-            <%- include('product-card') %>
-        
-        
-            <%- include('product-card') %>
-        
+        <% data.forEach(element => { %>
+                <%- include('product-card', {data: element}) %>
+        <% }) %>
     </div>
   
     <button aria-label="Previous" class="glider-prev">«</button>

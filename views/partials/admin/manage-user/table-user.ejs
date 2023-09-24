@@ -1,6 +1,6 @@
 <!-- Modal toggle -->
 <div class="flex justify-end mb-5">
-    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" type="button">
+    <button class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" data-modal-target="add-user-modal" data-modal-toggle="add-user-modal" type="button">
         Tambah User
     </button>
 </div>
@@ -63,9 +63,13 @@
                                 <iconify-icon class="mt-1" icon="mdi:eye" style="color: white;" width="20"></iconify-icon>
                             </a>
                         <% } %> 
-                        <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto">
+                        <button class="rounded-full bg-orange-400 hover:bg-orange-600 px-1.5 py-0.5 my-auto" data-modal-target="edit-user-modal<%= element.id %>" data-modal-toggle="edit-user-modal<%= element.id %>">
                             <iconify-icon class="mt-1" icon="uil:edit" style="color: white;" width="20"></iconify-icon>
                         </button>
+                        <%- include('./modal-form', {
+                            idModal:"edit-user-modal"+element.id, 
+                            url:"/admin/user/update/"+element.id,
+                            data: element}) %>
                     </td>
                 </tr>
             <% }) %>
@@ -73,5 +77,5 @@
         </tbody>
     </table>
 
-    <%- include('./modal-form') %>
+    <%- include('./modal-form', {idModal:"add-user-modal", url:"/admin/user/add"}) %>
 </div>
