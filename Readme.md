@@ -9,7 +9,7 @@
 
 ## Setup dan Instalasi
 1. eksekusi perintah <code>npm install</code> untuk menginstall dependensi
-2. Buat file <strong>.env</strong> sesuai dengan file <strong>.env.example</strong> untuk setup environtment aplikasi
-3. Setup environtment Database pada file <strong>config.json</strong> di dalam folder config.
+2. Buat file <strong>.env</strong> sesuai dengan file <strong>.env.example</strong> untuk setup environtment aplikasi dan Database
+3. Jalankan Migrasi dengan perintah <code>npx sequelize-cli db:migrate</code> dan Jalankan Seeder dengan perintah <code>npx sequelize-cli db:seed:all</code> 
 4. eksekusi perintah <code> npm run dev </code> untuk memulai aplikasi dalam environtment dev dengan nodemon
 5. eksekusi perintah <code> npm run start </code> untuk memulai aplikasi dalam environtment prod dengan node 
