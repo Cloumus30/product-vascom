@@ -5,6 +5,7 @@
 - OS Komputer Windows 11
 - Database Mangement System yang digunakan ketika pembuatan adalah postgresql versi 14
 - Untuk Mencoba API yang telah dibuat saya lampirkan file Postman collection di project ini dengan nama <strong>Vascomm Test Bidang.postman_collection.json</strong>
+- Untuk API, user dengan role USER hanya dapat mengakses api list data, untuk proses CUD hanya role admin yang bisa
 
 ## Setup dan Instalasi
 1. eksekusi perintah <code>npm install</code> untuk menginstall dependensi
