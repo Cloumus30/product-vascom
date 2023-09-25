@@ -24,10 +24,13 @@ module.exports = (sequelize, DataTypes) => {
     imageUrl: {
       type: DataTypes.VIRTUAL,
       get(){
+        const port = process.env.APP_PORT || 3000
+        const urlApp = process.env.APP_URL || `http://localhost:${port}`
         if(this.image){
-          return url.resolve('http://localhost:5000', this.image);
+          return url.resolve(urlApp, this.image);
+        }else{
+          return url.resolve(urlApp, 'public/images/no-image.jpg');
         }
-        return null;
       }
     },
     createdDate: {
